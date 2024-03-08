@@ -13,3 +13,6 @@
 11.  [pipe](./pipe-and-compose.js)
 12.  [compose](./pipe-and-compose.js)
 13.  [promise polyfill](./promise-polyfill.js)
+14.  [roman to integer](./CARS24/roman-to-integer.js) - CARS24
+15.  [flatten array](./CARS24/flatten-array.js) - CARS24
+16.  [roman to integer](./CARS24/time-limited-fn.js) - CARS24
