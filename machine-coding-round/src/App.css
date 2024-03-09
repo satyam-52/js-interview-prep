@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  text-align: center;
+}
+
+
+/* MultiSelectDropdown */
+.dropdown--container {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.dropdown--button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1em;
+}
+
+.dropdown--items {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  user-select: none;
+}
+
+.dropdown--items.active {
+  display: block;
+}
+
+.dropdown--item {
+  cursor: pointer;
+}
+
+.dropdown--item:hover {
+  background-color: #eee;
+}
+
+.dropdown--item label {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem;
+
+}
+
+.dropdown--item input {
+  margin-right: 0.5rem;
+}
+
+
+/* Tabs */
+.tabs--wrapper {
+  width: 100%;
+}
+
+.tabs--buttons {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid blue;
+}
+
+.tab--button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab--button.active {
+  background-color: #eee;
+  outline: 1px solid red;
+}

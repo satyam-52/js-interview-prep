@@ -5,10 +5,10 @@
 // 2. If the execution of the fn exceeds the time limit, the time limited function should reject with the string "Time Limit Exceeded"
 
 let delay = 1000;
-let timeLimit = 200;
+let timeLimit = 200;  // t
 
 
-async function fn () {
+async function fn () {  // fn()
   return await new Promise((resolve) => {
     setTimeout(() => {resolve("Resolved")}, delay);
   });
