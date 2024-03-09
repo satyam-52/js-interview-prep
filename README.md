@@ -16,3 +16,9 @@
 14.  [roman to integer](./CARS24/roman-to-integer.js) - CARS24
 15.  [flatten array](./CARS24/flatten-array.js) - CARS24
 16.  [roman to integer](./CARS24/time-limited-fn.js) - CARS24
+
+
+## Machine Coding Questions - ReactJS
+
+1. [Tabs](./machine-coding-round/src/components/Tabs/)
+1. [MultiSelectDropdown](./machine-coding-round/src/components/MultiSelectDropdown/)

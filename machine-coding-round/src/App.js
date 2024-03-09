@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import MultiSelectDropdown from "./components/MultiSelectDropdown";
+import MultiSelectDropdown from "./components/MultiSelectDropdown/MultiSelectDropdown";
 import "./App.css";
 import Tabs from "./components/Tabs/Tabs";
 
