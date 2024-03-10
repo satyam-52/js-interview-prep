@@ -2,6 +2,10 @@ import { useCallback, useState } from "react";
 import MultiSelectDropdown from "./components/MultiSelectDropdown/MultiSelectDropdown";
 import "./App.css";
 import Tabs from "./components/Tabs/Tabs";
+import Accordion from "./components/Accordion/Accordion";
+import Pagination from "./components/Pagination/Pagination";
+import CustomHooks from "./components/CustomHooks/CustomHooks";
+import useWindowConfirm from './hooks/useWindowConfirm/useWindowConfirm';
 
 const options = [
   {
@@ -42,28 +46,56 @@ const json = [
   }
 ]
 
+
+const accordionData = [
+  {
+    id: "one",
+    title: "One",
+    content: <p>This is One's Content</p>
+  },
+  {
+    id: "two",
+    title: "Two",
+    content: <p>This is Two's Content</p>
+  },
+  {
+    id: "three",
+    title: "Three",
+    content: <p>This is Three's Content</p>
+  },
+]
+
 export default function App() {
   const [selectedOptions, setSelectedOptions] = useState(null);
+  const {isConfirmed, Component} = useWindowConfirm();
+  
   const onChange = useCallback((selectedOptions) => {
-    console.log({ selectedOptions });
     setSelectedOptions(selectedOptions)
   }, []);
 
+  const handleAlert = async () => {
+    const confirmed = await isConfirmed("Are you able to see all products?");
+    if(confirmed) alert("Yes!!")
+    else alert("No!!")
+  }
+
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
       <div>{selectedOptions && selectedOptions.join(", ")}</div>
       <MultiSelectDropdown options={options} onChange={onChange} />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <div className="seperator" />
       <Tabs tabs={json} />
+      <div className="seperator" />
+      <Accordion accordionData={accordionData} />
+      <div className="seperator" />
+      <Pagination />
+      <div className="seperator" />
+      <CustomHooks />
+      <div className="seperator" />
+      <Component />
+      <button onClick={handleAlert}>(Alert)</button>
+      <div className="seperator" />
     </div>
   );
 }

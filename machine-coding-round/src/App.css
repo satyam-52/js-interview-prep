@@ -9,6 +9,10 @@ body {
   text-align: center;
 }
 
+.seperator {
+  height: 350px;
+}
+
 
 /* MultiSelectDropdown */
 .dropdown--container {
@@ -90,4 +94,128 @@ body {
 .tab--button.active {
   background-color: #eee;
   outline: 1px solid red;
+}
+
+/* Accordion */
+
+.accordion--wrapper {
+  width: 100%;
+  text-align: left;
+}
+
+.accordion--tab {
+  border: 1px solid #eee;
+}
+
+
+.accordion--title {
+  font-weight: 700;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1em;
+}
+
+.accordion--content {
+  padding: 0.5rem 1rem;
+  transform: scaleY(0);
+  height: 0;
+  transform-origin: top;
+  transition: 0.3s ease transform;
+}
+
+.accordion--content.active {
+  transform: scaleY(1);
+  height: auto;
+}
+
+/* Pagination */
+
+.products {
+  display: grid;
+  grid: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product--card {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.product--img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.pagination--buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination--btn {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #eee;
+  background-color: white;
+  cursor: pointer;
+}
+
+.pagination--btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination--btn.active {
+  background-color: beige;
+}
+
+
+/* WindowConfirm */
+
+.popup--wrapper {
+  background-color: rgba(155, 155, 155, 0.3);
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.popup--content {
+  background-color: white;
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.btn--container {
+  display: flex;
+  gap: 10px;
+}
+
+.action--btn {
+  padding: 5px 10px;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .products {
+  grid: repeat(3, 1fr) / repeat(2, 1fr);
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .products {
+  grid: repeat(3, 1fr) / repeat(1, 1fr);
+  }
+  
 }

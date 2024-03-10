@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Tabs({tabs}) {
+export default function Tabs({tabs, defaultTabId}) {
   const [selectedTab, setSelectedTab] = useState(null);
   const handleClick = (e) => {
     setSelectedTab(e.target.id);
@@ -23,7 +23,7 @@ export default function Tabs({tabs}) {
         {
           tabs.map(
             (tabData) => selectedTab === tabData.id && 
-              <div className="tab-content">{tabData.content}</div>
+              <div className="tab-content" key={tabData.id}>{tabData.content}</div>
           )
         }
       </div>
