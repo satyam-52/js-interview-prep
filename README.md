@@ -16,9 +16,20 @@
 14.  [roman to integer](./CARS24/roman-to-integer.js) - CARS24
 15.  [flatten array](./CARS24/flatten-array.js) - CARS24
 16.  [roman to integer](./CARS24/time-limited-fn.js) - CARS24
+17.  [reduce polyfill](./reduce-polyfill.js)
+18.  [prototypal inheritance](./prototypal-inheritance.js)
+
 
 
 ## Machine Coding Questions - ReactJS
 
 1. [Tabs](./machine-coding-round/src/components/Tabs/)
-1. [MultiSelectDropdown](./machine-coding-round/src/components/MultiSelectDropdown/)
+2. [MultiSelectDropdown](./machine-coding-round/src/components/MultiSelectDropdown/)
+3. [Accordion](./machine-coding-round/src/components/Accordion/)
+4. [CustomHooks](./machine-coding-round/src/components/CustomHooks/)
+5. [Pagination](./machine-coding-round/src/components/Pagination/)
+6. [WindowConfirm](./machine-coding-round/src/components/WindowConfirm/)
+7. [useCustomEffect](./machine-coding-round/src/hooks/useCustomEffect/)
+8. [useCustomState](./machine-coding-round/src/hooks/useCustomState/)
+9. [useOnUnmount](./machine-coding-round/src/hooks/useOnUnmount/)
+10. [WindowConfirm](./machine-coding-round/src/useWindowConfirm/useWindowConfirm/)
