@@ -1,68 +1,74 @@
-function PromisePolyfill (executor) {
-  let onResolve, 
-      onReject, 
-      isCalled = false, 
-      isFullfilled = false, 
-      isRejected = false,
-      value;
+function MyPromise(executor) {
+  let resolveVal,
+    rejectVal,
+    resolveCb = [],
+    rejectCb = [],
+    isFulfilled = false,
+    isRejected = false,
+    isPending = true;
 
-  this.then = function(callback) {
-    onResolve = callback;
-
-    if(isFullfilled && !isCalled) {
-      onResolve(value);
-      isCalled = true;
-    }
-
-    return this;
-  }
-
-  this.catch = function(callback) {
-    onReject = callback;
-
-    if(isFullfilled && !isCalled) {
-      onReject(value);
-      isCalled = true;
-    }
-
-    return this;
-  }
-
-  function resolve(val) {
-    isFullfilled = true;
-    value = val;
-
-    if(typeof onResolve === "function") {
-      onResolve(val);
-      isCalled = true;
+  function resolve(value) {
+    resolveVal = value;
+    isFulfilled = true;
+    if (resolveCb.length && isPending) {
+      resolveCb.forEach((cb, idx) => {
+        resolveVal = cb(resolveVal)
+      })
+      resolveCb = [];
+      isPending = false;
     }
   }
 
-  function reject(val) {
+  function reject(value) {
+    rejectVal = value;
     isRejected = true;
-    value = val;
-
-    if(typeof onReject === "function") {
-      onReject(val);
-      isCalled = true;
+    if (rejectCb.length && isPending) {
+      rejectCb.forEach((cb, idx) => {
+        rejectVal = cb(rejectVal);
+      });
+      rejectCb = [];
+      isPending = false;
     }
+  }
+
+  this.then = function (cb) {
+    resolveCb.push(cb);
+    if (isFulfilled && resolveVal) {
+      resolveCb(resolveVal);
+    }
+
+    return this;
+  }
+
+  this.catch = function (cb) {
+    rejectCb.push(cb);
+    if (isRejected && rejectVal) {
+      rejectCb(rejectVal);
+    }
+
+    return this;
   }
 
   try {
     executor(resolve, reject);
-  } catch(err) {
+  } catch (err) {
     reject(err);
   }
 }
 
-// new PromisePolyfill((resolve, reject) => {
-//   setTimeout(() => {
-//     const result = Math.random() > 0.5 ? true : false;
-//     if(result) resolve("Resolved!");
-//     else reject("Rejected!")
-//   },1000);
-// }).then((res) => {
-//   console.log(res);
-// }).catch((err) => {
-//   console.error(err);
-// })
+new MyPromise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.5)
+      resolve("Hi");
+    else reject("Bye");
+  }, 1000);
+})
+  .then((res) => {
+    console.log("First: ", res);
+    return "Bye!"
+  })
+  .catch((err) => {
+    console.log("Error: ", err);
+    return "Catch"
+  })
+  .then((res) => console.log("Second: ", res));
