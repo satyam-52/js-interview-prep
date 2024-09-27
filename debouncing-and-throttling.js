@@ -12,34 +12,36 @@ normal.innerHTML = nVal;
 throttled.innerHTML = tVal;
 debounced.innerHTML = dVal;
 
-function myDebounce (cb, d) {
-  let timer;
-  return () => {
-    if(timer) clearTimeout(timer);
-    timer = setTimeout(cb, d);
-  }
-}
-
-function myThrottle (cb, d) {
+function throttle(callback, delay) {
   let last = 0;
-  return () => {
+  return (...args) => {
     let now = new Date().getTime();
-    if(now - last < d) return;
+    if (now - last < delay) return;
     last = now;
-    cb();
-  }
+    callback.apply(this, args);
+  };
 }
 
-const increaseWithDebouce = myDebounce(() => {
-  debounced.innerHTML = ++dVal
-},1000);
+function debounce(callback, delay) {
+  let timeoutId = null;
+  return function (...args) {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      callback.apply(this, args);
+    }, delay);
+  };
+}
 
-const increaseWithThrottle = myThrottle(() => {
+const increaseWithDebouce = debounce(() => {
+  debounced.innerHTML = ++dVal;
+}, 1000);
+
+const increaseWithThrottle = throttle(() => {
   throttled.innerHTML = ++tVal;
-},1000);
+}, 1000);
 
 button.addEventListener("click", () => {
   normal.innerHTML = ++nVal;
   increaseWithDebouce();
   increaseWithThrottle();
-})
+});

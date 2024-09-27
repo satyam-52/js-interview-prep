@@ -1,0 +1,11 @@
+{
+  "name": "js-interview-prep",
+  "version": "1.0.0",
+  "description": "1. [call](./call-bind-apply.js)\r 2. [bind](./call-bind-apply.js)\r 3. [apply](./call-bind-apply.js)\r 4. [call polyfill](./call-bind-apply-polyfill.js)\r 5. [bind polyfill](./call-bind-apply-polyfill.js)\r 6. [apply polyfill](./call-bind-apply-polyfill.js)\r 7. [currying](./currying.js)\r 8. [debouncing](./debouncing-and-throttling.js)\r 9. [throttling](./debouncing-and-throttling.js)\r 10. [memoization](./memoization)\r 11. [pipe](./pipe-and-compose.js)\r 12. [compose](./pipe-and-compose.js)\r 13. [promise polyfill](./promise-polyfill.js)\r 14. [roman to integer](./CARS24/roman-to-integer.js) - CARS24\r 15. [flatten array](./CARS24/flatten-array.js) - CARS24\r 16. [roman to integer](./CARS24/time-limited-fn.js) - CARS24\r 17. [reduce polyfill](./reduce-polyfill.js)\r 18. [prototypal inheritance](./prototypal-inheritance.js)\r 19. [flatten object](./flatten-object.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -5,7 +5,8 @@ import Tabs from "./components/Tabs/Tabs";
 import Accordion from "./components/Accordion/Accordion";
 import Pagination from "./components/Pagination/Pagination";
 import CustomHooks from "./components/CustomHooks/CustomHooks";
-import useWindowConfirm from './hooks/useWindowConfirm/useWindowConfirm';
+import useWindowConfirm from "./hooks/useWindowConfirm/useWindowConfirm";
+import Autocomplete from "./components/Autocomplete/Autocomplete";
 
 const options = [
   {
@@ -32,53 +33,67 @@ const json = [
   {
     id: "one",
     placeholder: "One",
-    content: <><div>This is One's content</div><img src="https://picsum.photos/id/1/200/300" alt="" /></>
+    content: (
+      <>
+        <div>This is One's content</div>
+        <img src="https://picsum.photos/id/1/200/300" alt="" />
+      </>
+    ),
   },
   {
     id: "two",
     placeholder: "Two",
-    content: <><div>This is Two's content</div><img src="https://picsum.photos/id/2/200/300" alt="" /></>
+    content: (
+      <>
+        <div>This is Two's content</div>
+        <img src="https://picsum.photos/id/2/200/300" alt="" />
+      </>
+    ),
   },
   {
     id: "three",
     placeholder: "Three",
-    content: <><div>This is Three's content</div><img src="https://picsum.photos/id/3/200/300" alt="" /></>
-  }
-]
-
+    content: (
+      <>
+        <div>This is Three's content</div>
+        <img src="https://picsum.photos/id/3/200/300" alt="" />
+      </>
+    ),
+  },
+];
 
 const accordionData = [
   {
     id: "one",
     title: "One",
-    content: <p>This is One's Content</p>
+    content: <p>This is One's Content</p>,
   },
   {
     id: "two",
     title: "Two",
-    content: <p>This is Two's Content</p>
+    content: <p>This is Two's Content</p>,
   },
   {
     id: "three",
     title: "Three",
-    content: <p>This is Three's Content</p>
+    content: <p>This is Three's Content</p>,
   },
-]
+];
 
 export default function App() {
   const [selectedOptions, setSelectedOptions] = useState(null);
-  const {isConfirmed, Component} = useWindowConfirm();
-  
+  const { isConfirmed, Component } = useWindowConfirm();
+  const [chips, setChips] = useState([]);
+
   const onChange = useCallback((selectedOptions) => {
-    setSelectedOptions(selectedOptions)
+    setSelectedOptions(selectedOptions);
   }, []);
 
   const handleAlert = async () => {
     const confirmed = await isConfirmed("Are you able to see all products?");
-    if(confirmed) alert("Yes!!")
-    else alert("No!!")
-  }
-
+    if (confirmed) alert("Yes!!");
+    else alert("No!!");
+  };
 
   return (
     <div className="App">
@@ -95,6 +110,8 @@ export default function App() {
       <div className="seperator" />
       <Component />
       <button onClick={handleAlert}>(Alert)</button>
+      <div className="seperator" />
+      <Autocomplete chips={chips} setChips={setChips} />
       <div className="seperator" />
     </div>
   );

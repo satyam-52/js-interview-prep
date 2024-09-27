@@ -13,7 +13,6 @@ body {
   height: 350px;
 }
 
-
 /* MultiSelectDropdown */
 .dropdown--container {
   position: relative;
@@ -66,13 +65,11 @@ body {
   width: 100%;
   cursor: pointer;
   padding: 0.5rem;
-
 }
 
 .dropdown--item input {
   margin-right: 0.5rem;
 }
-
 
 /* Tabs */
 .tabs--wrapper {
@@ -106,7 +103,6 @@ body {
 .accordion--tab {
   border: 1px solid #eee;
 }
-
 
 .accordion--title {
   font-weight: 700;
@@ -173,7 +169,6 @@ body {
   background-color: beige;
 }
 
-
 /* WindowConfirm */
 
 .popup--wrapper {
@@ -205,17 +200,40 @@ body {
   cursor: pointer;
 }
 
-
 @media screen and (max-width: 1024px) {
   .products {
-  grid: repeat(3, 1fr) / repeat(2, 1fr);
+    grid: repeat(3, 1fr) / repeat(2, 1fr);
   }
-  
 }
 
 @media screen and (max-width: 768px) {
   .products {
-  grid: repeat(3, 1fr) / repeat(1, 1fr);
+    grid: repeat(3, 1fr) / repeat(1, 1fr);
   }
-  
+}
+
+/* Chip */
+
+.autocomplete-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.chip-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  max-width: 350px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
 }

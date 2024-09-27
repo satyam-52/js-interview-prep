@@ -1,31 +1,39 @@
-let user = {
-  firstName: "John",
-  lastName: "John",
+const user = {
+  id: 1,
+  firstName: "Satyam",
+  lastName: "Dua",
   address: {
-    personal: {
-      city: "Delhi",
-      state: "Delhi",
+    addressLine1: "12/2B, Chandar Nagar",
+    addressLine2: "Alambagh",
+    city: "Lucknow",
+    state: "Uttar Pradesh",
+    pincode: "226005",
+  },
+  contactInfo: {
+    countryCode: "+91",
+    mobile: "7985334941",
+    telephone: {
+      prefix: "",
+      number: "",
     },
-    work: {
-      city: "Gurgaon",
-      state: "Gurgaon",
-    },
-    country: "India",
   },
 };
 
-
-function getFlattenedObj(obj, left = "") {
-  let flattenedObj = {};
-  for (let key in obj) {
-    const leftStr = left ? `${left}.` : "";
-    if (typeof obj[key] === "object") {
-      flattenedObj = { ...flattenedObj, ...getFlattenedObj(obj[key], `${leftStr}${key}`) }
+Object.prototype.flat = function flattenObject(
+  startingKey = "",
+  seperator = "."
+) {
+  const obj = this;
+  let finalObj = {};
+  for (let [key, value] of Object.entries(obj)) {
+    let finalKey = (startingKey ? startingKey + seperator : "") + key;
+    if (typeof value !== "object") {
+      finalObj[finalKey] = value;
     } else {
-      flattenedObj[`${leftStr}${key}`] = obj[key]
+      finalObj = { ...finalObj, ...value.flat(finalKey, ".") };
     }
   }
-  return flattenedObj;
-}
+  return finalObj;
+};
 
-console.table(getFlattenedObj(user));
+console.log(user.flat());

@@ -19,6 +19,21 @@
 17. [reduce polyfill](./reduce-polyfill.js)
 18. [prototypal inheritance](./prototypal-inheritance.js)
 19. [flatten object](./flatten-object.js)
+20. [Two way Data binding](./two-way-data-binding.js)
+21. [Rate Limit Promise](./rate-limit-promises.js)
+22. [Promisify](./promisify.js)
+23. [Promise All](./promise-all-polyfill.js)
+24. [LRU Automatic Cache Eviction](./LRU-automatic-cache-eviction.js);
+25. [getElementsByStyle](./getElementsByStyle.js)
+26. [Flatten Array](./flatten-array.js)
+27. [Filter Object](./filter-object.js)
+28. [fetchWithRetry](./fetchWithRetry.js)
+29. [Dynamic Compute](./dynamic-compute.js)
+30. [Data Table with Sort and Filter](./data-table-with-sort-and-filter.js)
+31. [Array Filter Polyfill](./array-filter-polyfill.js)
+32. [Eval function Polyfill](./Amazon/eval-polyfill.js) - Amazon
+33. [JSON Stringify Polyfill](./Amazon/json-stringify-polyfill.js) - Amazon
+34. [Log Invalid URLs in HTML](./Amazon/logInvalidUrls.js) - Amazon
 
 ## Machine Coding Questions - ReactJS
 
@@ -32,3 +47,4 @@
 8. [useCustomState](./machine-coding-round/src/hooks/useCustomState/)
 9. [useOnUnmount](./machine-coding-round/src/hooks/useOnUnmount/)
 10. [WindowConfirm](./machine-coding-round/src/useWindowConfirm/useWindowConfirm/)
+11. [AutoComplete](./machine-coding-round/src/Autocomplete/Autocomplete.tsx)
